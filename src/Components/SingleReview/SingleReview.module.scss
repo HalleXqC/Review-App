@@ -1,0 +1,751 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.root{
+    position: relative;
+    width: 100%;
+    min-height: 70vh;
+    background: #0052D4;
+    background: -webkit-linear-gradient(to right, #021B79, #4364F7, #0052D4);
+    background: linear-gradient(to right, #0052D4 20%, #4364F7 80%, #0052D4 100%);
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    padding: 15vh 0;
+    .review{
+        position: relative;
+        background: #0052D4;
+        background: -webkit-linear-gradient(to right, #021B79, #4364F7, #0052D4);
+        background: linear-gradient(to right, #0052D4 20%, #4364F7 80%, #0052D4 100%);
+        background-attachment: fixed;
+        width: 90%;
+        margin: 0 auto;
+        min-height: 50vh;
+        padding: 10vh 0;
+        box-shadow: 0 0 40px rgba(30, 30, 30, 0.3);
+        margin-bottom: 5vh;
+        .main{
+            position: relative;
+            width: 80%;
+            min-height: 50vh;
+            display: flex;
+            margin: 0 auto;
+            .mainLeft{
+                position: relative;
+                flex: 1;
+                height: 45vh;
+                z-index: 15;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgb(247, 245, 244);
+                margin-right: 1rem;
+                box-shadow: 0 0 10px rgba(50, 50, 50, 0.3);
+                .mainLeftInner{
+                    position: relative;
+                    width: 90%;
+                    min-height: 90%;
+                    z-index: 15;
+                    text-align: center;
+                    padding-top: 0.5rem;
+                    .mainLeftImg{
+                        position: relative;
+                        width: 260px;
+                        height: 32vh;
+                        margin: 0 auto;
+                        z-index: 15;
+                    }
+                    .mainLeftTitle{
+                        color: black;
+                        font-size: 20px;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        cursor: pointer;
+                        letter-spacing: 1.2;
+                        margin: 0;
+                        margin-top: 10px;
+                        font-weight: 600;
+                        font-family: 'Poppins', sans-serif;
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                    .mainLeftRating{
+                        position: relative;
+                        width: 100%;
+                        left: -1%;
+                        display: flex;
+                        justify-content: space-around;
+                        .star{
+                            font-size: 30px;
+                        }
+                    }
+                }
+                &::before{
+                    content: '';
+                    position: absolute;
+                    z-index: 10;
+                    left: 100%;
+                    top: 2rem;
+                    width: 100%;
+                    height: 8px;
+                    background-color: white;
+                }
+            }
+            .mainLeftBefore{
+                position: absolute;
+                width: 20%;
+                height: 55vh;
+                left: 0;
+                top: -5vh;
+                border-radius: 20px;
+                background-color: rgb(255, 225, 55);
+                z-index: 1;
+                transform: translateX(20%);
+            }
+            .mainRight{
+                position: relative;
+                flex: 2.5;
+                padding-top: 2.5rem;
+                .mainRightTop{
+                    .mainRightTopTop{
+                        display: flex;
+                        align-items: center;
+                        .mainRightUser{
+                            color: white;
+                            font-size: 24px;
+                            margin: 0;
+                            margin-right: 1rem;
+                            font-weight: 600;
+                            span{
+                                font-size: 30px;
+                                color: rgb(255, 181, 70);
+                            }
+                        }
+                        .numberOfComments{
+                            opacity: 0.9;
+                            display: flex;
+                            align-items: center;
+                            .a{
+                                text-decoration: none;
+                                margin-right: 0.25rem;
+                                width: 20px;
+                                height: 20px;
+                                border-bottom: 1px dotted white;
+                                .commentsIcon{
+                                    font-size: 20px;
+                                    color: white;
+                                    cursor: pointer;
+                                    &:hover{
+                                        text-decoration: underline;
+                                        color: crimson;
+                                    }
+                                }
+                            }
+                            span{
+                                color: white;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                    .mainRightDate{
+                        color: rgba(255, 255, 255, 0.6);
+                        font-size: 16px;
+                        margin: 0;
+                        margin-bottom: 1rem;
+                        font-weight: 300;
+                    }
+                }
+                .mainRightBottom{
+                    position: relative;
+                    padding-left: 3rem;
+                    padding-top: 2rem;
+                    padding-bottom: 2rem;
+                    .mainRightBottomReview{
+                        color: white;
+                        font-size: 18px;
+                        line-height: 1.3;
+                        letter-spacing: 0.5px;
+                        text-shadow: 0 0 1.5pt rgb(0, 0, 0);
+                    }
+                    .mainRightBottomQuote1{
+                        position: absolute;
+                        top: 0;
+                        right: 95%;
+                        font-size: 50px;
+                        color: rgba(0, 0, 0, 0.5);
+                        transform: rotate(180deg);
+                    }
+                    .mainRightBottomQuote2{
+                        position: absolute;
+                        bottom: 0;
+                        left: 100%;
+                        font-size: 50px;
+                        color: rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+            .loading{
+                width: 100%;
+                height: 50vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .closeBtnBlock{
+                .closeBtn{
+                    position: fixed;
+                    right: 1.5rem;
+                    bottom: 1.5rem;
+                    background: #F7971E;
+                    background: -webkit-linear-gradient(to right, #FFD200, #F7971E);
+                    background: linear-gradient(to right, #FFD200, #F7971E);
+                    padding: 0.5rem 1rem;
+                    font-size: 20px;
+                    border: none;
+                    outline: none;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    font-weight: 500;
+                    z-index: 10000;
+                    font-family: 'Poppins', sans-serif;
+                    text-decoration: none;
+                    color: #111;
+                    transition: 0.5s;
+                    .returnIcon{
+                        font-size: 22px;
+                    }
+                    &:hover{
+                        box-shadow: 0 0 15px #cabb75;
+                        border-radius: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .commentSect{
+        width: 80%;
+        margin: 0 auto;
+        .addCommentSect{
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem 0;
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            .img{
+                width: 50px;
+                height: 50px;
+                margin-right: 1rem;
+                border-radius: 50%;
+            }
+            .input{
+                width: 80%;
+                min-height: 30px;
+                max-height: 250px;
+                border: none;
+                resize: vertical;
+                outline: none;
+                background-color: transparent;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                color: #eee;
+                margin-right: 1rem;
+                font-size: 16px;
+                font-family: 'Poppins', sans-serif;
+            }
+            .commentSendBtn{
+                background: #F7971E;
+                background: -webkit-linear-gradient(to right, #FFD200, #F7971E);
+                background: linear-gradient(to right, #FFD200, #F7971E);
+                padding: 0.5rem 1rem;
+                font-size: 18px;
+                border: none;
+                outline: none;
+                border-radius: 6px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                font-weight: 500;
+                font-family: 'Poppins', sans-serif;
+                transition: 0.3s;
+                .sendIcon{
+                    font-size: 20px;
+                }
+                span{
+                    margin-right: 0.3rem;
+                }
+                &:hover{
+                    box-shadow: 0 0 8px #cabb75;
+                }
+                &:disabled{
+                    background: linear-gradient(to right, #c4b058, #bd8847);
+                }
+                &:disabled:hover{
+                    box-shadow: none;
+                    cursor: default;
+                }
+                &:focus{
+                    box-shadow: 0 0 1pt 2pt crimson;
+                }
+            }
+        }
+        .allComments{
+            display: flex;
+            flex-direction: column-reverse;
+            .comment{
+                position: relative;
+                margin-bottom: 2rem;
+                display: flex;
+                flex-direction: column;
+                padding: 1rem;
+                background-color: rgba(255, 255, 255, 0.1);
+                transform: skewX(-5deg);
+                box-shadow: 5px 5px 10px rgba(255, 181, 70, 0.25);
+                .commentTop{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 1rem;
+                    .img{
+                        width: 40px;
+                        height: 40px;
+                        margin-right: 0.5rem;
+                        border-radius: 50%;
+                    }
+                    span{
+                        display: flex;
+                        align-items: center;
+                        .commentUser{
+                            font-size: 16px;
+                            color: rgb(255, 181, 70);
+                            margin: 0;
+                            margin-right: 1rem;
+                            text-decoration: none;
+                            font-weight: 500;
+                            cursor: pointer;
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                        .commentDate{
+                            margin: 0;
+                            font-size: 14px;
+                            font-weight: 300;
+                            color: rgba(230, 230, 230, 0.5);
+                        }
+                    }
+                }
+                .commentValue{
+                    font-size: 18px;
+                    color: rgb(235, 235, 235);
+                    margin: 0;
+                }
+                .deleteBlock{
+                    position: absolute;
+                    right: 0.75rem;
+                    top: 0.75rem;
+                    .delete{
+                        color: orangered;
+                        font-size: 24px;
+                        cursor: pointer;
+                        &:hover{
+                            color: rgb(179, 74, 36);
+                        }
+                    }
+                }
+            }
+        }
+        .loadingBlock{
+            width: 100%;
+            text-align: center;
+        }
+        .noComments{
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            color: white;
+            font-style: italic;
+        }
+    }
+}
+
+@media screen and (max-width: 1272px){
+    .root{
+        padding: 5vh 0;
+        min-height: 90vh;
+        .review{
+            .main{
+                width: 90%;
+                .mainLeftBefore{
+                    width: 210px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .root{
+        .review{
+            width: 95%;
+            .main{
+                width: 95%;
+                .mainLeftBefore{
+                    height: 48vh;
+                    width: 170px;
+                    top: -4vh;
+                }
+                .mainLeft{
+                    height: 40vh;
+                    .mainLeftInner{
+                        padding-top: 0;
+                        .mainLeftImg{
+                            width: 200px;
+                            height: 25vh;
+                        }
+                        .mainLeftRating{
+                            .star{
+                                font-size: 24px;
+                            }
+                        }
+                    }
+                }
+                .mainRight{
+                    flex: 4;
+                    .mainRightTop{
+                        .mainRightTopTop{
+                            .mainRightUser{
+                                font-size: 1.25em;
+                                span{
+                                    font-size: 24px;
+                                }
+                            }
+                        }
+                        .mainRightDate{
+                            font-size: 14px;
+                            margin-bottom: 0.5rem;
+                        }
+                    }
+                    .mainRightBottom{
+                        padding-left: 2rem;
+                        padding-top: 1rem;
+                        .mainRightBottomQuote2{
+                            left: 85%;
+                        }
+                        .mainRightBottomReview{
+                            font-size: 1em;
+                        }
+                    }
+                }
+            }
+        }
+        .commentSect{
+            width: 95%;
+        }
+    }
+}
+
+@media screen and (max-width: 700px){
+    .root{
+        .review{
+            width: 97%;
+            padding: 5vh 0;
+            .main{
+                width: 97%;
+                flex-direction: column;
+                .mainLeftBefore{
+                    height: 40vh;
+                    width: 145px;
+                    top: -3vh;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                .mainLeft{
+                    width: 220px;
+                    height: 35vh;
+                    margin-left: 50%;
+                    transform: translateX(-50%);
+                    .mainLeftInner{
+                        padding-top: 0.5rem;
+                        .mainLeftImg{
+                            width: 190px;
+                            height: 25vh;
+                        }
+                        .mainLeftTitle{
+                            font-size: 1em;
+                        }
+                        .mainLeftRating{
+                            .star{
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                    &:before{
+                        width: 120%;
+                        top: 120%;
+                        left: -10%;
+                        height: 5px;
+                    }
+                }
+                .mainRight{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding-top: 3rem;
+                    .mainRightBottom{
+                        padding: 1rem;
+                        .mainRightBottomQuote1{
+                            right: 93%;
+                            width: 40px;
+                            top: -10%;
+                        }
+                        .mainRightBottomQuote2{
+                            left: 93%;
+                            width: 40px;
+                            bottom: -5%;
+                        }
+                        .mainRightBottomReview{
+                            font-size: 1em;
+                            text-indent: 15px;
+                            margin: 0;
+                        }
+                    }
+                }
+                .closeBtnBlock{
+                    .closeBtn{
+                        right: 0.5rem;
+                        bottom: 0.5rem;
+                        font-size: 1em;
+                        .returnIcon{
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+        .commentSect{
+            width: 95%;
+            .addCommentSect{
+                .img{
+                    margin-right: 0.3rem;
+                }
+                .input{
+                    font-size: 13px;
+                }
+                .commentSendBtn{
+                    font-size: 15px;
+                    .sendIcon{
+                        font-size: 16px;
+                    }
+                }
+            }
+            .allComments{
+                .comment{
+                    padding: 0.5rem;
+                    padding-bottom: 1rem;
+                    .commentTop{
+                        margin-bottom: 0.5rem;
+                        span{
+                            .commentUser{
+                                font-size: 14px;
+                                margin-right: 0.5rem;
+                            }
+                            .commentDate{
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    .commentValue{
+                        font-size: 15px;
+                    }
+                    .deleteBlock{
+                        .delete{
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px){
+    .root{
+        padding-top: 2.5vh;
+        .review{
+            padding: 2.5vh 0;
+            .main{
+                .mainRight{
+                    padding-top: 2rem;
+                    .mainRightTop{
+                        .mainRightTopTop{
+                            .mainRightUser{
+                                font-size: 1em;
+                                margin-right: 0.75rem;
+                                span{
+                                    font-size: 20px;
+                                }
+                            }
+                            .numberOfComments{
+                                .a{
+                                    width: 16px;
+                                    .commentsIcon{
+                                        font-size: 1em;
+                                    }
+                                }
+                                span{
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                        .mainRightDate{
+                            font-size: 12px;
+                            margin-bottom: 0.4rem;
+                        }
+                    }
+                    .mainRightBottom{
+                        padding: 1rem 0.5rem;
+                        .mainRightBottomQuote1{
+                            right: 92%;
+                            width: 30px;
+                            top: -7%;
+                        }
+                        .mainRightBottomQuote2{
+                            left: 92%;
+                            width: 30px;
+                        }
+                        .mainRightBottomReview{
+                            font-size: 0.85em;
+                        }
+                    }
+                }
+                .mainLeftBefore{
+                    height: 30vh;
+                    width: 110px;
+                    top: -1.5vh;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                .mainLeft{
+                    width: 170px;
+                    height: 30vh;
+                    margin-left: 50%;
+                    transform: translateX(-50%);
+                    .mainLeftInner{
+                        padding-top: 0.4rem;
+                        .mainLeftImg{
+                            width: 150px;
+                            height: 20vh;
+                        }
+                        .mainLeftTitle{
+                            font-size: 0.85em;
+                        }
+                        .mainLeftRating{
+                            .star{
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                    &:before{
+                        width: 130%;
+                        top: 115%;
+                        left: -15%;
+                        height: 4px;
+                    }
+                }
+            }
+        }
+        .commentSect{
+            .addCommentSect{
+                .img{
+                    width: 40px;
+                    height: 40px;
+                }
+                .input{
+                    font-size: 11px;
+                    margin-right: 0;
+                }
+                .commentSendBtn{
+                    padding: 0.3rem 0.7rem;
+                    font-size: 11px;
+                    .sendIcon{
+                        font-size: 14px;
+                    }
+                }
+            }
+            .allComments{
+                .comment{
+                    .commentTop{
+                        span{
+                            .commentUser{
+                                font-size: 12px;
+                            }
+                            .commentDate{
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                    .commentValue{
+                        font-size: 13px;
+                    }
+                    .deleteBlock{
+                        .delete{
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }   
+}
+
+@media screen and (max-width: 400px){
+    .root{
+        .review{
+            .main{
+                .mainRight{
+                    .mainRightBottom{
+                        .mainRightBottomReview{
+                            font-size: 10px;
+                        }
+                        .mainRightBottomQuote1{
+                            right: 90%;
+                            width: 20px;
+                            top: -10%;
+                        }
+                        .mainRightBottomQuote2{
+                            left: 90%;
+                            width: 20px;
+                            bottom: -7.5%;
+                        }
+                    }
+                }
+                .closeBtnBlock{
+                    .closeBtn{
+                        right: 0.5rem;
+                        bottom: 0.5rem;
+                        font-size: 0.75em;
+                        padding: 0.3rem 0.7rem;
+                        .returnIcon{
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+            .commentSect{
+                .addCommentSect{
+                    .img{
+                        width: 35px;
+                        height: 35px;
+                    }
+                    .commentSendBtn{
+                        padding: 0.3rem 0.5rem;
+                        font-size: 10px;
+                        .sendIcon{
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,162 @@
+.floatingStar1,
+.floatingStar2,
+.floatingStar3,
+.floatingStar4{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    img{
+        width: inherit;
+        height: inherit;
+    }
+}
+.floatingStar1{
+    top: 15%;
+    left: 5%;
+    img{
+        animation: star1 2s ease-in-out 1, move_after1 2s ease-in-out 2.1s infinite alternate;
+        transform: rotate(-30deg);
+    }
+}
+.floatingStar2{
+    bottom: 20%;
+    left: 4%;
+    img{
+        animation: star2 2s ease-in-out 1, move_after2 2s ease-in-out 2.1s infinite alternate;
+        transform: rotate(180deg);   
+    }
+}
+.floatingStar3{
+    bottom: 20%;
+    right: 28%;
+    img{
+        animation: star3 2s ease-in-out 1, move_after3 2s ease-in-out 2.1s infinite alternate;
+        transform: rotate(70deg);
+    }
+}
+.floatingStar4{
+    top: 18%;
+    right: 5%;
+    img{
+        animation: star4 2s ease-in-out 1, move_after4 2s ease-in-out 2.1s infinite alternate;
+        transform: rotate(-100deg);
+    }
+}
+
+@keyframes star1{
+    0%{
+        transform: rotate(-390deg);
+    }
+    100%{
+        transform: rotate(-30deg);
+    }
+}
+@keyframes star2{
+    0%{
+        transform: rotate(-180deg);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+}
+@keyframes star3{
+    0%{
+        transform: rotate(430deg);
+    }
+    100%{
+        transform: rotate(70deg);
+    }
+}
+@keyframes star4{
+    0%{
+        transform: rotate(260deg);
+    }
+    100%{
+        transform: rotate(-100deg);
+    }
+}
+
+
+@keyframes move_after1{
+    0%{
+        transform: rotate(-30deg) 
+    }
+    100%{
+        transform: rotate(-75deg) 
+    }
+}
+
+@keyframes move_after2{
+    0%{
+        transform: rotate(180deg) 
+    }
+    100%{
+        transform: rotate(135deg) 
+    }
+}
+
+@keyframes move_after3{
+    0%{
+        transform: rotate(70deg) 
+    }
+    100%{
+        transform: rotate(115deg) 
+    }
+}
+
+@keyframes move_after4{
+    0%{
+        transform: rotate(-100deg) 
+    }
+    100%{
+        transform: rotate(-55deg) 
+    }
+}
+
+@media screen and (max-width: 600px){
+    .floatingStar1,
+    .floatingStar2,
+    .floatingStar3,
+    .floatingStar4{
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        img{
+            width: inherit;
+            height: inherit;
+        }
+    }
+    .floatingStar3{
+        bottom: 15%;
+        right: 7%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .floatingStar2{
+        bottom: 15%;
+        left: 4%;
+    }
+    .floatingStar3{
+        bottom: 10%;
+        right: 7%;
+    }
+}
+@media screen and (max-width: 350px){
+    .floatingStar1,
+    .floatingStar2,
+    .floatingStar3,
+    .floatingStar4{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        img{
+            width: inherit;
+            height: inherit;
+        }
+    }
+    .floatingStar2{
+        bottom: 12%;
+        left: 4%;
+    }
+}

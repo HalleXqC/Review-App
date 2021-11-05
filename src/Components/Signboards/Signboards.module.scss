@@ -1,0 +1,60 @@
+.floatingBlock1,
+.floatingBlock2{
+    position: absolute;
+    width: 110%;
+    height: 20vh;
+    transform: rotate(2.5deg);
+    left: -5%;
+}
+.floatingBlock1{
+    background: linear-gradient(to right, #acb6e5 0%, #86fde8 25%, #acb6e5 50%, #86fde8 75%, #acb6e5 100%);
+    background-size: 400% 400%;
+    background-repeat: no-repeat;
+    top: -25%;
+    animation: roll-top 1.5s ease-in-out 1 forwards , slide-top 10s ease-in-out 1.6s infinite alternate ;
+}
+.floatingBlock2{
+    background: linear-gradient(to right, #86fde8 0%, #acb6e5 25%, #86fde8 50%, #acb6e5 75%, #86fde8 100%);
+    background-size: 400% 400%;
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    bottom: -25%;
+    animation: roll-bottom 1.5s ease-in-out 1 forwards , slide-bottom 10s ease-in-out 1.6s infinite alternate;
+}
+
+
+@keyframes roll-top{
+    0%{
+        top: -30%;
+    }
+    100%{
+        top: -10%;
+    }
+}
+
+@keyframes roll-bottom{
+    0%{
+        bottom: -30%;
+    }
+    100%{
+        bottom: -10%;
+    }
+}
+
+@keyframes slide-top{
+    0%{ 
+        background-position-x: 0%;
+    }
+    100%{
+        background-position-x: 100%;
+    }
+}
+
+@keyframes slide-bottom{
+    0%{ 
+        background-position-x: 100%;
+    }
+    100%{
+        background-position-x: 0%;
+    }
+}

@@ -1,0 +1,639 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@200;300;400;500;600;700&display=swap');
+
+.card{
+    display: block;
+    position: relative;
+    width: 29%;
+    height: 530px;
+    border: 1px solid rgba(194, 198, 202, 0.7);
+    box-shadow: 0 0 10px rgba(194, 198, 202, 0.5);
+    background-color: #eee;
+    border-radius: 5px;
+    margin-bottom: 3rem;
+    transition: 0.5s;
+    hr{
+        border: none;
+        border-bottom: 1px solid rgba(194, 198, 202, 0.7);
+        width: 100%;
+        margin: 0.5rem auto;
+    }
+    .cardHeader{
+        position: relative;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        .cardBanner{
+            width: 100%;
+            height: 150px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .cardUser{
+            position: absolute;
+            background-color: white;
+            border: 2px solid white;
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            margin-left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .restHeader{
+            padding-top: 2rem;
+            width: 100%;
+            text-align: center;
+            .link{
+                font-family: 'Poppins', sans-serif;
+                margin: 0;
+                font-weight: 400;
+                text-decoration: none;
+                color: black;
+                font-size: 23px;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+            .rating{
+                height: max-content;
+                .star{
+                    font-size: 30px;
+                }
+            }
+            .cardDate{
+                height: max-content;
+                margin: 0;
+                font-size: 13px;                        
+                font-family: 'Yaldevi', sans-serif; 
+                color: rgb(70, 70, 70);
+                font-weight: 300;
+            }
+        }
+    }
+    .cardMovie{
+        .h3{
+            font-family: 'Yaldevi', sans-serif; 
+            margin: 0;
+            font-weight: bold;
+            font-size: 18px;
+            padding-left: 0.6rem;
+            color: black;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+            span{
+                padding-left: 0.5rem;
+                font-weight: 300;
+                color: rgb(0, 0, 0);
+            }
+        }
+    }
+    .cardMain{
+        position: relative;
+        padding: 0 0.5rem;
+        overflow-x: hidden;
+        margin-bottom: 10px;
+        .regularReview,
+        .shortedReview{
+            margin: 0;
+            font-size: 18px;  
+            line-height: 1.2;
+            font-family: 'Roboto', sans-serif;
+        }
+        .shortedReview{
+            .shortedGradient{
+                background: -webkit-linear-gradient();
+                background: linear-gradient(to right, black 0%, rgb(180, 180, 180) 100%);
+                background-clip: border-box;
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text
+            }
+        }
+    }
+    .cardButton{
+        background: #E44D26;
+        background: -webkit-linear-gradient(to right, #F16529, #E44D26);
+        background: linear-gradient(to right, #F16529, #E44D26);
+        position: absolute;
+        bottom: 1rem;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        padding: 0.5rem 1rem;
+        font-family: 'Urbanist', sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: white;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        transition: 0.3s;
+        cursor: pointer;
+        &:hover{
+            box-shadow: 0 0 15px #c26036d2;
+        }
+    }
+    .cardFooter{
+        position: relative;
+        width: 100%;
+        h3{
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+        }
+    }
+    .deleteBtn{
+        position: absolute;
+        right: 1em;
+        bottom: 1em;
+        padding: 0.2em;
+        margin: 0;
+        outline: none;
+        border: 1px solid #bbb;
+        border-radius: 5px;
+        background-color: white;
+        cursor: pointer;
+        .deleteIcon{
+            font-size: 1.5em;
+            color: crimson;
+        }
+        &:hover{
+            background-color: crimson;
+            .deleteIcon{
+                color: #eee;
+            }
+        }
+        &:disabled{
+            cursor: wait;
+            background-color: transparent;
+            .deleteIcon{
+                color: rgb(170, 76, 95);
+            }
+        }
+        &:disabled:hover{
+            background-color: transparent;
+            .deleteIcon{
+                color: rgb(170, 76, 95);
+            }
+        }
+    }
+    &:hover{
+        box-shadow: 0 0 20px rgba(194, 198, 202, 0.5)
+    }
+}
+
+@media screen and (max-width: 1270px){
+    .card{
+        .cardMain{
+            .shortedReview{
+                font-size: 16px;
+            }
+            .regularReview{
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1180px){
+    .card{
+        width: 31%;
+    }
+}
+
+@media screen and (max-width: 1170px){
+    .card{
+        .cardHeader{
+            .restHeader{
+                .link{
+                    font-size: 20px;
+                }
+                .rating{
+                    .star{
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+        hr{
+            margin: 0.3rem auto;
+        }
+    }
+}
+
+@media screen and (max-width: 1050px){
+    .card{
+        height: 500px;
+        .cardMain{
+            .shortedReview{
+                font-size: 15px;
+            }
+            .regularReview{
+                font-size: 15px;
+            }
+        }
+        .cardMovie{
+            .h3{
+                font-size: 16px;
+                span{
+                    padding-left: 0.2rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 950px){
+    .card{
+        .cardHeader{
+            .cardUser{
+                width: 50px;
+                height: 50px;
+            }
+            .restHeader{
+                padding-top: 1.2rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 912px){
+    .card{
+        .cardButton{
+            font-size: 13px;
+        }
+    }
+}
+
+@media screen and (max-width: 850px){
+    .card{
+        width: 47%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .card{
+        width: 100%;
+        .cardMain{
+            .shortedReview{
+                font-size: 16px;
+            }
+            .regularReview{
+                font-size: 16px;
+            }
+        }
+        .cardMovie{
+            .h3{
+                font-size: 18px;
+                span{
+                    padding-left: 0.5rem;
+                }
+            }
+        }
+        .cardHeader{
+            .cardUser{
+                width: 70px;
+                height: 70px;
+            }
+            .restHeader{
+                padding-top: 2rem;
+                .rating{
+                    .star{
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 380px){
+    .card{
+        height: 460px;
+        .cardMain{
+            .shortedReview{
+                font-size: 14px;
+            }
+            .regularReview{
+                font-size: 14px;
+            }
+        }
+        .cardMovie{
+            .h3{
+                font-size: 16px;
+                span{
+                    padding-left: 0.2rem;
+                }
+            }
+        }
+        .cardHeader{
+            .cardUser{
+                width: 50px;
+                height: 50px;
+            }
+            .restHeader{
+                padding-top: 1.2rem;
+                .rating{
+                    .star{
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.biggerCard{
+    display: block;
+    position: relative;
+    width: 48%;
+    height: 530px;
+    border: 1px solid rgba(194, 198, 202, 0.7);
+    box-shadow: 0 0 10px rgba(194, 198, 202, 0.5);
+    background-color: #eee;
+    border-radius: 5px;
+    margin-bottom: 3rem;
+    transition: 0.5s;
+    hr{
+        border: none;
+        border-bottom: 1px solid rgba(194, 198, 202, 0.7);
+        width: 100%;
+        margin: 0.5rem auto;
+    }
+    .cardHeader{
+        position: relative;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        .cardBanner{
+            width: 100%;
+            height: 150px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .cardUser{
+            position: absolute;
+            background-color: white;
+            border: 2px solid white;
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            margin-left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .restHeader{
+            padding-top: 2rem;
+            width: 100%;
+            text-align: center;
+            .link{
+                font-family: 'Poppins', sans-serif;
+                margin: 0;
+                font-weight: 400;
+                text-decoration: none;
+                color: black;
+                font-size: 23px;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+            .rating{
+                height: max-content;
+                .star{
+                    font-size: 30px;
+                }
+            }
+            .cardDate{
+                height: max-content;
+                margin: 0;
+                font-size: 13px;                        
+                font-family: 'Yaldevi', sans-serif; 
+                color: rgb(70, 70, 70);
+                font-weight: 300;
+            }
+        }
+    }
+    .cardMovie{
+        .h3{
+            font-family: 'Yaldevi', sans-serif; 
+            margin: 0;
+            font-weight: bold;
+            font-size: 18px;
+            padding-left: 0.6rem;
+            color: black;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+            span{
+                padding-left: 0.5rem;
+                font-weight: 300;
+                color: rgb(0, 0, 0);
+            }
+        }
+    }
+    .cardMain{
+        position: relative;
+        padding: 0 0.5rem;
+        overflow-x: hidden;
+        margin-bottom: 10px;
+        .regularReview,
+        .shortedReview{
+            margin: 0;
+            font-size: 18px;  
+            line-height: 1.2;
+            font-family: 'Roboto', sans-serif;
+        }
+        .shortedReview{
+            .shortedGradient{
+                background: -webkit-linear-gradient();
+                background: linear-gradient(to right, black 0%, rgb(180, 180, 180) 100%);
+                background-clip: border-box;
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text
+            }
+        }
+    }
+    .cardButton{
+        background: #E44D26;
+        background: -webkit-linear-gradient(to right, #F16529, #E44D26);
+        background: linear-gradient(to right, #F16529, #E44D26);
+        position: absolute;
+        bottom: 1rem;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        padding: 0.5rem 1rem;
+        font-family: 'Urbanist', sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: white;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        transition: 0.3s;
+        cursor: pointer;
+        &:hover{
+            box-shadow: 0 0 15px #c26036d2;
+        }
+    }
+    .cardFooter{
+        position: relative;
+        width: 100%;
+        h3{
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+        }
+    }
+    .deleteBtn{
+        position: absolute;
+        right: 1em;
+        bottom: 1em;
+        padding: 0.2em;
+        margin: 0;
+        outline: none;
+        border: 1px solid #bbb;
+        border-radius: 5px;
+        background-color: white;
+        cursor: pointer;
+        .deleteIcon{
+            font-size: 1.5em;
+            color: crimson;
+        }
+        &:hover{
+            background-color: crimson;
+            .deleteIcon{
+                color: #eee;
+            }
+        }
+        &:disabled{
+            cursor: wait;
+            background-color: transparent;
+            .deleteIcon{
+                color: rgb(170, 76, 95);
+            }
+        }
+        &:disabled:hover{
+            background-color: transparent;
+            .deleteIcon{
+                color: rgb(170, 76, 95);
+            }
+        }
+    }
+    &:hover{
+        box-shadow: 0 0 20px rgba(194, 198, 202, 0.5)
+    }
+}
+
+@media screen and (max-width: 1270px){
+    .biggerCard{
+        .cardMain{
+            .shortedReview{
+                font-size: 16px;
+            }
+            .regularReview{
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1170px){
+    .biggerCard{
+        .cardHeader{
+            .restHeader{
+                .link{
+                    font-size: 20px;
+                }
+                .rating{
+                    .star{
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+        hr{
+            margin: 0.3rem auto;
+        }
+    }
+}
+
+@media screen and (max-width: 1050px){
+    .biggerCard{
+        height: 500px;
+        width: 100%;
+        .cardMain{
+            .shortedReview{
+                font-size: 15px;
+            }
+            .regularReview{
+                font-size: 15px;
+            }
+        }
+        .cardMovie{
+            .h3{
+                font-size: 16px;
+                span{
+                    padding-left: 0.2rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 950px){
+    .biggerCard{
+        .cardHeader{
+            .cardUser{
+                width: 50px;
+                height: 50px;
+            }
+            .restHeader{
+                padding-top: 1.2rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 912px){
+    .biggerCard{
+        .cardButton{
+            font-size: 13px;
+        }
+    }
+}
+
+@media screen and (max-width: 600px){
+    .biggerCard{
+        height: 460px;
+        .cardMain{
+            .shortedReview{
+                font-size: 14px;
+            }
+            .regularReview{
+                font-size: 14px;
+            }
+        }
+        .cardMovie{
+            .h3{
+                font-size: 16px;
+                span{
+                    padding-left: 0.2rem;
+                }
+            }
+        }
+        .cardHeader{
+            .cardUser{
+                width: 50px;
+                height: 50px;
+            }
+            .restHeader{
+                padding-top: 1.2rem;
+                .rating{
+                    .star{
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+}

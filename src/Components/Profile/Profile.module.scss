@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+.root{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    .nav{
+        background: rgb(233,243,251);   
+    }
+    .main{
+        position: relative;
+        padding: 1rem 4rem;
+        padding-top: 2rem;
+        min-height: 80vh;
+        background-color: white;
+        display: flex;
+        .mainProfile{
+            flex: 1;
+            position: relative;
+            margin-right: 3rem;
+            .profPic{
+                position: relative;
+                margin-left: 25%;
+                transform: translateX(-25%);
+                .img{
+                    width: 250px;
+                    height: 250px;
+                    border-radius: 50%;
+                    border: 1px solid #30363d;
+                }
+            }
+            .names{
+                margin: 0.5rem 0;
+                .nickname{
+                    color: #222;
+                    margin: 0;
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+                .name{
+                    font-size: 18px;
+                    color: #555;
+                    font-weight: 500;
+                    margin: 0;
+                }
+                .gender{
+                    color: #222;
+                    font-size: 20px;
+                    font-weight: 500;
+                    margin: 0.3rem 0;
+                    .blue{
+                        font-weight: 600;
+                        color: rgb(74, 74, 226);
+                    }
+                    .pink{
+                        font-weight: 500;
+                        color: plum;
+                    }
+                }
+                .bio{
+                    margin: 0.5rem 0;
+                    font-size: 17px;
+                    color: #212121;
+                    font-weight: 400;
+                }
+                .editBtn,
+                .exitProfileBtn{
+                    display: block;
+                    width: 91px;
+                    border-radius: 5px;
+                    font-family: 'Quicksand', sans-serif;
+                    color: rgb(245, 245, 245);
+                    border: none;
+                    outline: none;
+                    font-size: 18px;
+                    text-decoration: none;
+                    padding: 0.5rem 1rem;
+                    margin: 0.7rem 0;
+                    transition: 0.3s;
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+                .editBtn{
+                    background-color: rgb(110, 2, 187);
+                    &:hover{
+                        background-color: rgb(51, 2, 187);
+                    }
+                }
+                .exitProfileBtn{
+                    background-color: rgb(187, 2, 2);
+                    &:hover{
+                        background-color: rgb(100, 35, 35);
+                    }
+                }
+            }
+        }
+        .mainMovies{
+            flex: 4;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media screen and (max-width: 1050px){
+    .root{
+        .main{
+            .mainMovies{
+                justify-content: space-around;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 750px){
+    .root{
+        .main{
+            padding: 1rem 1rem;
+            .mainProfile{
+                .profPic{
+                    .img{
+                        width: 175px;
+                        height: 175px;
+                    }
+                }
+                .names{
+                    .nickname{
+                        font-size: 1.25em;
+                    }
+                    .name{
+                        font-size: 0.85em;
+                    }
+                    .gender{
+                        font-size: 1em;
+                    }
+                    .bio{
+                        font-size: 0.75em;
+                    }
+                    .editBtn,
+                    .exitProfileBtn{
+                        font-size: 0.9em;
+                        text-align: center;
+                        padding: 0.4rem 0.6rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 540px){
+    .root{
+        .main{
+            flex-direction: column;
+            .mainProfile{
+                margin-right: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .profPic{
+                    margin-left: 0;
+                    transform: none;
+                }
+                .names{
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .exitProfileBtn,
+                    .editBtn{
+                        margin: 0.3rem 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px){
+    .root{
+        .main{
+            padding: 0.5rem;
+        }
+    }
+}
