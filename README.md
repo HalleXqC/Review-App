@@ -1,4 +1,4 @@
-React web application for writing reviews on movies.
+### React web application for writing reviews on movies. ###
 Technologies used:
 * React
 * React Router Dom
