@@ -74,3 +74,85 @@
         }
     }
 }
+
+@media screen and (max-width: 1050px){
+    .root{
+        .main{
+            .mainMovies{
+                justify-content: space-around;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 750px){
+    .root{
+        .main{
+            padding: 1rem 1rem;
+            .mainProfile{
+                .profPic{
+                    .img{
+                        width: 175px;
+                        height: 175px;
+                    }
+                }
+                .names{
+                    .nickname{
+                        font-size: 1.25em;
+                    }
+                    .name{
+                        font-size: 0.85em;
+                    }
+                    .gender{
+                        font-size: 1em;
+                    }
+                    .bio{
+                        font-size: 0.75em;
+                    }
+                    .editBtn,
+                    .exitProfileBtn{
+                        font-size: 0.9em;
+                        text-align: center;
+                        padding: 0.4rem 0.6rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px){
+    .root{
+        .main{
+            flex-direction: column;
+            .mainProfile{
+                margin-right: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .profPic{
+                    margin-left: 0;
+                    transform: none;
+                }
+                .names{
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .exitProfileBtn,
+                    .editBtn{
+                        margin: 0.3rem 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px){
+    .root{
+        .main{
+            padding: 0.5rem;
+        }
+    }
+}
