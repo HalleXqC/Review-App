@@ -13,6 +13,7 @@ import SingleReview from "./Components/SingleReview/SingleReview"
 import SingleMovie from "./Components/SingleMovie/SingleMovie"
 import EditProfilePage from "./Components/EditProfilePage/EditProfilePage"
 import OtherProfile from "./Components/OtherProfile/OtherProfile"
+import AddReview from "./Components/AddReview/AddReview"
 
 const App = () => {
 
@@ -37,6 +38,7 @@ const App = () => {
                 <PrivateRoute exact path="/profile" component={Profile} />
                 <PrivateRoute exact path="/profile/edit" component={EditProfilePage} />
                 <PrivateRoute exact path="/profile/users/:id" component={OtherProfile} />
+                <PrivateRoute exact path="/addreview" component={AddReview} />
                 {
                     !user && (
                         <>

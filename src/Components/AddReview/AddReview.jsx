@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 import { AiFillStar as Star } from 'react-icons/ai'
 import { IoMdArrowDropdown as DDIcon } from 'react-icons/io'
 import { getUsers, saveReviewIntoUserData, sendReview, getMovies, sendReviewIntoMovie} from '../../API';
+import { Link, useHistory } from 'react-router-dom';
 
-const AddReview = ({setUpdateUseEffect, closeModalBtn}) => {
+const AddReview = () => {
 
     const {register , handleSubmit} = useForm();
     const [errors , setErrors] = useState(null);
@@ -20,6 +21,8 @@ const AddReview = ({setUpdateUseEffect, closeModalBtn}) => {
     const [select , setSelect] = useState(false);
     const [textAreaLength, setTextAreaLength] = useState(0);
     const [useEffectChange, setUseEffectChange] = useState('')
+    const [searchMovie, setSearchMovie] = useState('')
+    const history = useHistory()
 
     const user = JSON.parse(localStorage.getItem('user'));
 
@@ -76,7 +79,6 @@ const AddReview = ({setUpdateUseEffect, closeModalBtn}) => {
                     date: currentDate,
                     user: user.localId
                 }, movieId)
-                setUpdateUseEffect(res)
             })
             .then(() => {
                 e.target.reset();
@@ -87,6 +89,9 @@ const AddReview = ({setUpdateUseEffect, closeModalBtn}) => {
                 setMovieId(null)
                 setTextAreaLength(0)
                 setUseEffectChange(data, e)
+            })
+            .then(() => {
+                history.push('/reviews')
             })
             .catch(err => {
                 setMovieErr(err)
@@ -115,7 +120,7 @@ const AddReview = ({setUpdateUseEffect, closeModalBtn}) => {
         <div className={cls.root}>
             {movies && (
                 <form onSubmit={handleSubmit(onSubmit, onError)}>
-                    <button onClick={() => closeModalBtn()} className={cls.closeButton}>&times;</button>
+                    <Link className={cls.closeButton} to="/reviews">Return</Link>
                     <label className={cls.inputLabel}>
                         <p>Choose a movie:</p>
                         <button 
@@ -126,7 +131,26 @@ const AddReview = ({setUpdateUseEffect, closeModalBtn}) => {
                         </button>
                         {select && (
                             <div className={cls.options}>
-                                {movies.map(item => (
+                                <div className={cls.optionsSearch}>
+                                    <input 
+                                        className={cls.optionsSearchInput} type="text" 
+                                        placeholder="Search"
+                                        value={searchMovie}
+                                        onChange={e => setSearchMovie(e.target.value)}
+                                    />
+                                </div>
+                                {!searchMovie ? movies.map(item => (
+                                    <button 
+                                        type="button"
+                                        key={item.id}
+                                        className={`${cls.option} ${movieTitle === item.title ? cls.chosen : null}`}
+                                        onClick={() => {
+                                            setMovieTitle(item.title)
+                                            setMovieId(item.id)
+                                            setSelect(false)
+                                        }}
+                                    ><span className={cls.innerSelect}><img src={item.banner} alt="movie" />{item.title}</span></button>
+                                )) : movies.filter(item => item.title.toUpperCase().includes(searchMovie.toUpperCase())).map(item => (
                                     <button 
                                         type="button"
                                         key={item.id}

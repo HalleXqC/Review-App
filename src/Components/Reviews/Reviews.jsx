@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
 import { getAllReviews, getMovies, getUsers } from '../../API'
-import AddReview from '../AddReview/AddReview'
 import Nav from '../Nav/Nav'
 import cls from './Reviews.module.scss'
 import Loading from '../Loading/Loading'
 import Card from '../Card/Card'
+import { Link } from 'react-router-dom'
 
 const Reviews = () => {
 
-    const [doShowModalWindow , setDoShowModalWindow] = useState(false)
     const [reviews , setReviews] = useState(null)
     const [movies , setMovies] = useState(null)
     const [users, setUsers] = useState(null)
@@ -50,10 +49,6 @@ const Reviews = () => {
         })
     }, [updateUseEffect])
 
-    const closeModalBtn = () => {
-        setDoShowModalWindow(false)
-    }
-
     return (
         <div className={cls.root}>
             <div className={cls.nav}>
@@ -75,9 +70,7 @@ const Reviews = () => {
                     )
                 }
             </div>
-            <button className={cls.addReviewBtn} onClick={() => {setDoShowModalWindow(true)}}>Add Review</button>
-
-            {doShowModalWindow && <AddReview setUpdateUseEffect={setUpdateUseEffect} closeModalBtn={closeModalBtn} />}
+            <Link className={cls.addReviewBtn} to="/addreview">Add Review</Link>
         </div>
     )
 }
