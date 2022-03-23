@@ -1,7 +1,7 @@
 import cls from './Register.module.scss'
 import { useState } from 'react'
 import { Link , useHistory} from "react-router-dom"
-import { registerNewUser, saveLogData } from '../../API'
+import { registerNewUser, saveLogData } from '../../../API'
 import { MdEmail as EmailIcon } from 'react-icons/md'
 import { RiLockPasswordFill as PasswordIcon } from 'react-icons/ri'
 import { FaMale as Male} from 'react-icons/fa'

@@ -5,6 +5,7 @@ import { AiFillStar as Star } from 'react-icons/ai'
 import { IoMdArrowDropdown as DDIcon } from 'react-icons/io'
 import { getUsers, saveReviewIntoUserData, sendReview, getMovies, sendReviewIntoMovie} from '../../API';
 import { Link, useHistory } from 'react-router-dom';
+import objectEntries from '../../Utils/objectEntries';
 
 const AddReview = () => {
 
@@ -36,13 +37,7 @@ const AddReview = () => {
         getMovies()
         .then(r => r.json())
         .then(res => {
-            const data = Object.entries(res).map(item => {
-                const id = item[0]
-                return {
-                    ...item[1],
-                    id
-                }
-            })
+            const data = objectEntries(res)
             const sortedData = data.sort((a, b) => a.title > b.title ? 1 : -1)
             setMovies(sortedData)
         });
@@ -64,7 +59,7 @@ const AddReview = () => {
                 nick: userNick
             }, '')
             .then(r => r.json())
-            .then(res => {
+            .then(() => {
                 saveReviewIntoUserData({
                     review: data.review,
                     movieId,

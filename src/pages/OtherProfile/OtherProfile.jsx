@@ -1,32 +1,27 @@
 import { useEffect, useState } from 'react'
 import { getMovies, getUser } from '../../API'
-import Nav from '../Nav/Nav'
-import cls from './Profile.module.scss'
+import Nav from '../../Components/Nav/Nav'
+import cls from './OtherProfile.module.scss'
 import { FaMale as Male, FaFemale as Female} from 'react-icons/fa'
-import Card from '../Card/Card'
-import { Link } from 'react-router-dom'
-import Loading from '../Loading/Loading'
+import Card from '../../Components/Card/Card'
+import Loading from '../../Components/Loading/Loading'
+import { useParams } from 'react-router'
+import objectEntries from '../../Utils/objectEntries'
 
-const Profile = () => {
+const OtherProfile = () => {
 
-    const user = JSON.parse(localStorage.getItem('user'))
+    const { id } = useParams()
     const [profile, setProfile] = useState(null)
     const [reviews, setReviews] = useState(null)
     const [movies, setMovies] = useState(null)
 
     useEffect(() => {
-        getUser(user.localId)
+        getUser(id)
         .then(r => r.json())
         .then(re => {
             setProfile(re)
             if(re.reviews){
-                const data = Object.entries(re.reviews).map(item => {
-                    const id = item[0]
-                    return {
-                        ...item[1],
-                        id
-                    }
-                })
+                const data = objectEntries(re.reviews)
                 setReviews(data)
             }else{
                 setReviews([])
@@ -42,15 +37,7 @@ const Profile = () => {
         .catch(err => {
             console.error(err);
         })
-    }, [user.localId])
-
-    function exitProfile(){
-        const isExit = window.confirm('Are you really want to exit?')
-        if(isExit){
-            localStorage.removeItem('user');
-            window.location.reload();
-        }
-    }
+    }, [id])
 
     return (
         <>
@@ -98,13 +85,11 @@ const Profile = () => {
                             {profile.bio ? (
                                 <p className={cls.bio}>{profile.bio}</p>
                             ) : null}
-                            <Link to="/profile/edit" className={cls.editBtn}>Edit profile</Link>
-                            <button className={cls.exitProfileBtn} onClick={exitProfile}>Exit</button>
                         </div>
                     </div>
                     <div className={cls.mainMovies}>
                         {reviews?.length === 0 ? (
-                            <h1>You haven't written any reviews yet</h1>
+                            <h1>This user haven't written any reviews yet</h1>
                         ) : movies && reviews ? reviews.map((item, i) => {
                             return (
                                 <Card
@@ -124,4 +109,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default OtherProfile

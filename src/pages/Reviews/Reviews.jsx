@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { getAllReviews, getMovies, getUsers } from '../../API'
-import Nav from '../Nav/Nav'
+import Nav from '../../Components/Nav/Nav'
 import cls from './Reviews.module.scss'
-import Loading from '../Loading/Loading'
-import Card from '../Card/Card'
+import Loading from '../../Components/Loading/Loading'
+import Card from '../../Components/Card/Card'
 import { Link } from 'react-router-dom'
+import objectEntries from '../../Utils/objectEntries'
 
 const Reviews = () => {
 
@@ -18,14 +19,8 @@ const Reviews = () => {
         .then(r => r.json())
         .then(res => {
             if(res !== null){
-                const data = Object.entries(res).reverse().map(item => {
-                    const key = item[0]
-                    return {
-                        ...item[1],
-                        key
-                    }
-                })
-                setReviews(data)
+                const data = objectEntries(res)
+                setReviews(data.reverse())
                 localStorage.removeItem('userNick')
             }else{
                 setReviews([])

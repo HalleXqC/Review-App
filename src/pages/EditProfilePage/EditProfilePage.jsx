@@ -1,5 +1,5 @@
 import cls from './EditProfilePage.module.scss'
-import Nav from '../Nav/Nav'
+import Nav from '../../Components/Nav/Nav'
 import { editUser, getUser } from '../../API'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'

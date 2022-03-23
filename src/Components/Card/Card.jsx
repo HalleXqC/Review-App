@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router'
 import { deleteReview, getAllReviews, getMovies, getUsers } from '../../API'
 import { AiFillDelete as Delete } from 'react-icons/ai'
+import objectEntries from '../../Utils/objectEntries'
 
 const Card = ({review, user, movie, width, setUpdateUseEffect}) => {
 
@@ -22,23 +23,10 @@ const Card = ({review, user, movie, width, setUpdateUseEffect}) => {
         getAllReviews('')
         .then(r => r.json())
         .then(res => {
-            const data = Object.entries(res).map(item => {
-                let id = item[0]
-                return {
-                    ...item[1],
-                    id
-                }
-            })
-            return data
+            return objectEntries(res)
         })
         .then(data => {
-            const filteredReview = data.filter(item => {
-                if(item.review === review.review){
-                    return true
-                }else{
-                    return false
-                }
-            })
+            const filteredReview = data.filter(item => item.review === review.review)
             setTargetReview(filteredReview)
         })
         .then(() => {
@@ -67,36 +55,15 @@ const Card = ({review, user, movie, width, setUpdateUseEffect}) => {
             if(item){
                 deleteReview(`reviews`, item.id)
     
-                const tempFilteredUserReview = Object.entries(allUsers[item.user].reviews).map(kekw => {
-                    let id = kekw[0]
-                    return {
-                        ...kekw[1],
-                        id
-                    }
-                });
-                const filteredUserReview = tempFilteredUserReview.filter(rev => {
-                    if(item.review === rev.review){
-                        return true
-                    }else{
-                        return false
-                    }
-                });
+                const tempFilteredUserReview = objectEntries(allUsers[item.user].reviews)
+
+                const filteredUserReview = tempFilteredUserReview.filter(rev => item.review === rev.review);
                 deleteReview(`users/${item.user}/reviews`, `${filteredUserReview[0].id}`)
     
-                const tempFilteredMovieReview = Object.entries(allMovies[item.movieId].reviews).map(monkaw => {
-                    let id = monkaw[0]
-                    return {
-                        ...monkaw[1],
-                        id
-                    }
-                });
-                const filteredMovieReview = tempFilteredMovieReview.filter(rev => {
-                    if(item.review === rev.review){
-                        return true
-                    }else{
-                        return false
-                    }
-                });
+                const tempFilteredMovieReview = objectEntries(allMovies[item.movieId].reviews)
+
+                const filteredMovieReview = tempFilteredMovieReview.filter(rev => item.review === rev.review)
+
                 deleteReview(`movies/${item.movieId}/reviews`, `${filteredMovieReview[0].id}`)
                 .then(d => d.json())
                 .then(del => {
@@ -123,9 +90,27 @@ const Card = ({review, user, movie, width, setUpdateUseEffect}) => {
                                     className={cls.cardBanner}
                                 ></div>
                                 {user.image ? (
-                                    <div className={cls.cardUser} style={{background: `url("${user.image}") center / cover`}}></div>
+                                    <div 
+                                        className={cls.cardUser} 
+                                        style={{ 
+                                            backgroundImage: `url("${user.image}")`,
+                                            backgroundColor: "white",
+                                            backgroundPosition: "center",
+                                            backgroundSize: "cover",
+                                            backgroundRepeat: "no-repeat"
+                                        }}
+                                    ></div>
                                 ) : (
-                                    <div className={cls.cardUser} style={{background: `url("/img/user.png") center / cover`}}></div>
+                                    <div 
+                                        className={cls.cardUser} 
+                                        style={{
+                                            backgroundImage: `url("/img/user.png")`,
+                                            backgroundColor: "white",
+                                            backgroundPosition: "center",
+                                            backgroundSize: "cover",
+                                            backgroundRepeat: "no-repeat"
+                                        }}
+                                    ></div>
                                 )}
                                 <div className={cls.restHeader}>
                                     <Link to={`/profile/users/${review.user}`} className={cls.link}>{user.nick}</Link>
@@ -154,13 +139,11 @@ const Card = ({review, user, movie, width, setUpdateUseEffect}) => {
                             <div className={cls.cardMain}>
                                 {  
                                     review.review.split(' ').length > 25 ? (
-                                        <>
-                                            <p className={cls.shortedReview}>
-                                                {review.review.split(' ').slice(0, 20).join(' ')}
-                                                &nbsp;
-                                                <span className={cls.shortedGradient}>{review.review.split(' ').slice(20, 25).join(' ')}.....</span>
-                                            </p>
-                                        </>
+                                        <p className={cls.shortedReview}>
+                                            {review.review.split(' ').slice(0, 20).join(' ')}
+                                            &nbsp;
+                                            <span className={cls.shortedGradient}>{review.review.split(' ').slice(20, 25).join(' ')}.....</span>
+                                        </p>
                                     ) : <p className={cls.regularReview}>{review.review}</p>
                                 }
                             </div>
