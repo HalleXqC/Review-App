@@ -37,18 +37,6 @@ const Nav = ({color}) => {
                             </li>
                         ))
                     }
-                    <li>
-                        <NavLink exact to="/home" className={cls.link} activeClassName={cls.active} style={color ? {color: `${color}`} : null}>Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink exact to="/reviews" className={cls.link} activeClassName={cls.active} style={color ? {color: `${color}`} : null}>Reviews</NavLink>
-                    </li>
-                    <li>
-                        <NavLink exact to="/movies" className={cls.link} activeClassName={cls.active} style={color ? {color: `${color}`} : null}>Movies</NavLink>
-                    </li>
-                    <li>
-                        <NavLink exact to="/profile" className={cls.link} activeClassName={cls.active} style={color ? {color: `${color}`} : null}>Profile</NavLink>
-                    </li>
                 </ul>
             </div>
         </div>
