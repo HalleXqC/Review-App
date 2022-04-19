@@ -39,6 +39,8 @@ const OtherProfile = () => {
         })
     }, [id])
 
+    if (!reviews) return <Loading/>
+    if (!movies) return <Loading/>
     return (
         <>
         {profile && (
@@ -90,7 +92,7 @@ const OtherProfile = () => {
                     <div className={cls.mainMovies}>
                         {reviews?.length === 0 ? (
                             <h1>This user haven't written any reviews yet</h1>
-                        ) : movies && reviews ? reviews.map((item, i) => {
+                        ) : reviews.map((item, i) => {
                             return (
                                 <Card
                                     review={item}
@@ -100,7 +102,7 @@ const OtherProfile = () => {
                                     key={i}
                                 />
                             )
-                        }) : <Loading/>}
+                        })}
                     </div>
                 </div>
             </div>

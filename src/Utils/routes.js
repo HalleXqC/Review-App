@@ -15,10 +15,6 @@ export const routes = [
         path: '/'
     },
     {
-        comp: Home,
-        path: '/home'
-    },
-    {
         comp: Reviews,
         path: '/reviews'
     },

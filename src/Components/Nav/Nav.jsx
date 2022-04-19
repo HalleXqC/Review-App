@@ -5,20 +5,24 @@ const Nav = ({color}) => {
 
     const links = [
         {
-            route: '/home',
-            value: 'Home'
+            route: '/',
+            value: 'Home',
+            id: 1,
         },
         {
             route: '/reviews',
-            value: 'Reviews'
+            value: 'Reviews',
+            id: 2,
         },
         {
             route: '/movies',
-            value: 'Movies'
+            value: 'Movies',
+            id: 3,
         },
         {
             route: '/profile',
-            value: 'Profile'
+            value: 'Profile',
+            id: 4,
         }
     ]
 
@@ -32,8 +36,16 @@ const Nav = ({color}) => {
                 <ul>
                     {
                         links.map(item => (
-                            <li>
-                                <NavLink exact to={item.route} className={cls.link} activeClassName={cls.active} style={color ? {color: `${color}`} : null}>{item.value}</NavLink>
+                            <li key={item.id}>
+                                <NavLink 
+                                  exact 
+                                  to={item.route} 
+                                  className={cls.link} 
+                                  activeClassName={cls.active} 
+                                  style={color ? {color: `${color}`} : null}
+                                >
+                                  {item.value}
+                                </NavLink>
                             </li>
                         ))
                     }

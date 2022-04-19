@@ -7,6 +7,7 @@ import { BiCommentEdit as ReviewIcon } from 'react-icons/bi'
 import { IoMdReturnLeft as Return } from 'react-icons/io'
 import Card from '../Card/Card'
 import Loading from '../Loading/Loading'
+import objectEntries from '../../Utils/objectEntries'
 
 const SingleMovie = () => {
 
@@ -22,13 +23,7 @@ const SingleMovie = () => {
         .then(re => {
             setMovie(re)
             if(re.reviews){
-                const data = Object.entries(re.reviews).map(item => {
-                    const key = item[0]
-                    return {
-                        ...item[1],
-                        key
-                    }
-                })
+                const data = objectEntries(re.reviews)
                 setReviews(data)
             }else{
                 setReviews([])

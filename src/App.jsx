@@ -33,7 +33,7 @@ const App = () => {
                         </>
                     )
                 }
-                <Redirect to="/home" /> 
+                <Redirect to="/" /> 
             </Switch> 
 
             { location.pathname === "/login" ? (
