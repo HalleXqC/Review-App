@@ -6,10 +6,17 @@ import Loading from '../../Components/Loading/Loading'
 import Card from '../../Components/Card/Card'
 import { Link } from 'react-router-dom'
 import objectEntries from '../../Utils/objectEntries'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 const Reviews = () => {
 
+  const LIMIT = 6
+
   const [reviews, setReviews] = useState(null)
+  const [visibleReviews, setVisReviews] = useState(null)
+  const [visibleCount, setVisCount] = useState(LIMIT)
+  const [hasMore, setHasMore] = useState(true)
+
   const [movies, setMovies] = useState(null)
   const [users, setUsers] = useState(null)
   const [updateUseEffect, setUpdateUseEffect] = useState('')
@@ -21,6 +28,7 @@ const Reviews = () => {
         if (res !== null) {
           const data = objectEntries(res)
           setReviews(data.reverse())
+          setVisReviews(data.slice(0, LIMIT))
           localStorage.removeItem('userNick')
         } else {
           setReviews([])
@@ -44,6 +52,20 @@ const Reviews = () => {
       })
   }, [updateUseEffect])
 
+  const fetchData = () => {
+    const NEW_LIMIT = visibleCount + LIMIT
+    const dataToAdd = reviews?.slice(visibleCount, NEW_LIMIT)
+
+    if (reviews.length > visibleReviews.length) {
+      setTimeout(() => {
+        setVisReviews([...visibleReviews].concat(dataToAdd))
+      }, 500)
+      setVisCount(NEW_LIMIT)
+    } else {
+      setHasMore(false)
+    }
+    
+  }
 
   if (!reviews) return <Loading />
   if (!movies) return <Loading />
@@ -53,19 +75,28 @@ const Reviews = () => {
       <div className={cls.nav}>
         <Nav />
       </div>
-      <div className={cls.main}>
-        {reviews.map((item, index) => {
-          return (
-            <Card
-              review={item}
-              user={users[item.user]}
-              movie={movies[item.movieId]}
-              key={index}
-              setUpdateUseEffect={setUpdateUseEffect}
-            />
-          )
-        })}
-      </div>
+      
+      <InfiniteScroll
+        dataLength={visibleReviews.length}
+        next={fetchData}
+        hasMore={hasMore}
+        loader={<Loading/>}
+        className={cls.main}
+      >
+        {
+          visibleReviews.map((item, index) => {
+            return (
+              <Card 
+                review={item}
+                user={users[item.user]}
+                movie={movies[item.movieId]}
+                key={index}
+                setUpdateUseEffect={setUpdateUseEffect}
+              />
+            )
+          })
+        }
+      </InfiniteScroll>
       <Link className={cls.addReviewBtn} to="/addreview">Add Review</Link>
     </div>
   )
